@@ -3,4 +3,5 @@
 name = "groot"
 description = "The Groot Programming Language"
 version = "0.0.1"
+edition = "2015"
 authors = ["thiagopnts <thiagopnts@gmail.com>"]
