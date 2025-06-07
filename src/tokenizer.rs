@@ -8,7 +8,7 @@ pub struct Tokenizer<'a> {
 
 impl<'a> Tokenizer<'a> {
     pub fn new(words: Vec<&'a str>) -> Tokenizer<'a> {
-        Tokenizer { words: words, misses: 0, buf: "".to_string() }
+        Tokenizer { words, misses: 0, buf: "".to_string() }
     }
 
     pub fn tokenize(&mut self) -> Vec<Op> {

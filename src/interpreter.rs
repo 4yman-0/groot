@@ -1,4 +1,4 @@
-use std::io::{Read, stdin};
+use std::io::stdin;
 use operations::Op;
 
 pub struct Interpreter {
@@ -10,7 +10,7 @@ pub struct Interpreter {
 impl Interpreter {
     pub fn new(ops: Vec<Op>) -> Interpreter {
         let m = (0 .. 30000).map(|_| 0).collect();
-        Interpreter { memory: m, pointer: 0, ops: ops }
+        Interpreter { memory: m, pointer: 0, ops }
     }
 
     pub fn run(&mut self) {
@@ -29,7 +29,7 @@ impl Interpreter {
             }
             program_counter += 1;
         }
-        println!("");
+        println!();
     }
 
     fn left(&mut self) {
@@ -43,9 +43,9 @@ impl Interpreter {
     fn input(&mut self) {
         let mut input = String::new();
         stdin()
-            .read_line(&mut input).ok().expect("Error reading user input");
+            .read_line(&mut input).expect("Error reading user input");
 
-        self.memory[self.pointer as usize] = input.bytes().next().expect("no byte read") as u8;
+        self.memory[self.pointer as usize] = input.bytes().next().expect("no byte read");
     }
 
     fn increment(&mut self) {
